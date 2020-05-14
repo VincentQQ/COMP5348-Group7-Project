@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BookStore.Business.Entities
 {
-    public class InsufficientStockException : Exception
+    public partial class OrderItem
     {
-        public String ItemName { get; set; }
+        public void FindNumberOfWarehouses()
+        {
+            return 0;
+        }
     }
 }
