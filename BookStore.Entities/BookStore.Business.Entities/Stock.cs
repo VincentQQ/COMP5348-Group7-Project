@@ -15,9 +15,9 @@ namespace BookStore.Business.Entities
     public partial class Stock
     {
         public System.Guid Id { get; set; }
-        public string Warehouse { get; set; }
         public Nullable<int> Quantity { get; set; }
     
         public virtual Book Book { get; set; }
+        public virtual Warehouse Warehouse { get; set; }
     }
 }
