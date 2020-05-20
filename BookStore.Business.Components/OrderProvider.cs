@@ -89,25 +89,41 @@ namespace BookStore.Business.Components
             {
                 using (BookStoreEntityModelContainer lContainer = new BookStoreEntityModelContainer())
                 {
-                    Order lOrder = lContainer.Orders.Where(order => order.Id == pOrderId).FirstOrDefault();
-
-                    if (lOrder != null && lOrder.Delivery == null)
+                    try
                     {
-                        foreach (var item in lOrder.OrderItems)
-                        {
-                            foreach (var used in item.UsedStocks)
-                            {
-                                used.Stock.Quantity += used.Quantity;
-                            }
-                            lContainer.UsedStocks.RemoveRange(item.UsedStocks);
-                        }
-                        lContainer.OrderItems.RemoveRange(lOrder.OrderItems);
-                        RefundCustomer(lOrder.Customer.BankAccountNumber, lOrder.Total ?? 0.0);
-                        lContainer.Orders.Remove(lOrder);
-                    }
+                        Order lOrder = lContainer.Orders.Where(order => order.Id == pOrderId).FirstOrDefault();
+                        var lOrderNumber = lOrder.OrderNumber;
+                        var lCustomerEmail = lOrder.Customer.Email;
 
-                    lContainer.SaveChanges();
-                    lScope.Complete();
+                        if (lOrder != null && lOrder.Delivery == null)
+                        {
+                            foreach (var item in lOrder.OrderItems)
+                            {
+                                foreach (var used in item.UsedStocks)
+                                {
+                                    used.Stock.Quantity += used.Quantity;
+                                }
+                                lContainer.UsedStocks.RemoveRange(item.UsedStocks);
+                            }
+                            lContainer.OrderItems.RemoveRange(lOrder.OrderItems);
+                            RefundCustomer(lOrder.Customer.BankAccountNumber, lOrder.Total ?? 0.0);
+                            lContainer.Orders.Remove(lOrder);
+                        }
+
+                        lContainer.SaveChanges();
+
+                        EmailProvider.SendMessage(new EmailMessage()
+                        {
+                            ToAddress = lCustomerEmail,
+                            Message = "Your order " + lOrderNumber + " has successfully been cancelled."
+                        });
+                        lScope.Complete();
+                    }
+                    catch (Exception lException)
+                    {
+                        Console.WriteLine(DateTime.Now.ToString() + "    An exception occured: " + lException.Message);
+                        throw;
+                    }
                 }
             }
         }
@@ -247,6 +263,7 @@ namespace BookStore.Business.Components
             try
             {
                 ExternalServiceFactory.Instance.TransferService.Transfer(pTotal, pCustomerAccountNumber, RetrieveBookStoreAccountNumber());
+                Console.WriteLine(String.Format("Order payment of {0} deducted from account {1}", pTotal, pCustomerAccountNumber));
             }
             catch
             {
@@ -259,6 +276,7 @@ namespace BookStore.Business.Components
             try
             {
                 ExternalServiceFactory.Instance.TransferService.Transfer(pTotal, RetrieveBookStoreAccountNumber(), pCustomerAccountNumber);
+                Console.WriteLine(String.Format("Order refund of {0} transferred to account {1}", pTotal, pCustomerAccountNumber));
             }
             catch
             {
