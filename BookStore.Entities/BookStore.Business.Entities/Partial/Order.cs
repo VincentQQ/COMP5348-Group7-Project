@@ -7,17 +7,23 @@ namespace BookStore.Business.Entities
 {
     public partial class Order
     {
-        public void UpdateStockLevels()
+        public List<UsedStock> UpdateStockLevels()
         {
             List<Warehouse> warehouses = new List<Warehouse>();
             foreach (OrderItem lItem in this.OrderItems)
             {
+                int total = 0;
                 foreach (Stock lStock in lItem.Book.Stocks)
                 {
                     if (!warehouses.Contains(lStock.Warehouse))
                     {
                         warehouses.Add(lStock.Warehouse);
                     }
+                    total += (int)lStock.Quantity;
+                }
+                if (total < lItem.Quantity)
+                {
+                    throw (new InsufficientStockException());
                 }
             }
             List<List<Warehouse>> lWarehouseSubsets = GetWarehouseCombinations(warehouses);
@@ -48,26 +54,49 @@ namespace BookStore.Business.Entities
                     min = subset;
                 }
             }
+            List<UsedStock> lUsedStocks = new List<UsedStock>();
             foreach (OrderItem lItem in this.OrderItems)
             {
                 int quantityLeft = lItem.Quantity;
                 foreach (Warehouse lWarehouse in min)
                 {
-                    Stock lStock = lWarehouse.Stocks.Where(stock => stock.Book.Id == lItem.Book.Id).First();
-                    if (lStock.Quantity < quantityLeft)
+                    if (lWarehouse.Stocks.Where(stock => stock.Book.Id == lItem.Book.Id).Count() > 0)
                     {
-                        lStock.Quantity = 0;
-                    } else
-                    {
-                        lStock.Quantity -= quantityLeft;
-                    }
-                    quantityLeft -= (int)lStock.Quantity;
-                    if (quantityLeft < 0)
-                    {
-                        break;
+                        Stock lStock = lWarehouse.Stocks.Where(stock => stock.Book.Id == lItem.Book.Id).First();
+                        int difference = 0;
+                        if (lStock.Quantity < quantityLeft)
+                        {
+                            quantityLeft -= (int)lStock.Quantity;
+                            difference = (int)lStock.Quantity;
+                            // lStock.Quantity = 0;
+                        }
+                        else
+                        {
+                            difference = quantityLeft;
+                            quantityLeft = 0;
+                            // lStock.Quantity -= quantityLeft;
+                        }
+                        if (quantityLeft < 0)
+                        {
+                            break;
+                        }
+                        UsedStock lUsedStock = new UsedStock()
+                        {
+                            OrderItem = lItem,
+                            OrderItemId = lItem.Id,
+                            Stock = lStock,
+                            Quantity = difference
+                        };
+                        lUsedStocks.Add(lUsedStock);
                     }
                 }
+                if (quantityLeft > 0)
+                {
+                    throw (new InsufficientStockException());
+                }
+                
             }
+            return lUsedStocks;
         }
 
         private List<List<Warehouse>> GetWarehouseCombinations(List<Warehouse> pWarehouses)

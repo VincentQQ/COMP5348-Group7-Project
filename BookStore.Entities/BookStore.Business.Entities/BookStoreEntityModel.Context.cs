@@ -34,5 +34,6 @@ namespace BookStore.Business.Entities
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Warehouse> Warehouses { get; set; }
+        public virtual DbSet<UsedStock> UsedStocks { get; set; }
     }
 }

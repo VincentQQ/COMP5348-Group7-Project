@@ -104,6 +104,7 @@ namespace BookStore.Process
                     };
 
                     lContainer.Stocks.Add(lSoloistStock);
+                    List<Warehouse> warehouses = new List<Warehouse>();
 
                     for (int i = 1; i < 10; i++)
                     {
@@ -120,15 +121,28 @@ namespace BookStore.Process
 
                         lContainer.Books.Add(lItem);
                         // lContainer.Stocks.Add(lSoloistStock);
+                        foreach (Warehouse w in warehouses)
+                        {
+                            Stock s = new Stock()
+                            {
+                                Book = lItem,
+                                Quantity = (int)Math.Ceiling((10.0-i)/2),
+                                Warehouse = w
+                            };
+
+                            lContainer.Stocks.Add(s);
+                        }
 
                         Stock lStock = new Stock()
                         {
                             Book = lItem,
-                            Quantity = 10 + i,
+                            Quantity = 10,
                             Warehouse = lWarehouse
                         };
 
                         lContainer.Stocks.Add(lStock);
+
+                        warehouses.Add(lWarehouse);
                     }
 
                     lContainer.SaveChanges();

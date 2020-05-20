@@ -15,6 +15,7 @@
     <EntitySet Name="Books" EntityType="BookStoreEntityModel.Store.Books" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Roles" EntityType="BookStoreEntityModel.Store.Roles" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Warehouses" EntityType="BookStoreEntityModel.Store.Warehouses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsedStocks" EntityType="BookStoreEntityModel.Store.UsedStocks" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserRole" EntityType="BookStoreEntityModel.Store.UserRole" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="OrderWarehouse" EntityType="BookStoreEntityModel.Store.OrderWarehouse" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="OrderOrderItem" Association="BookStoreEntityModel.Store.OrderOrderItem">
@@ -60,6 +61,14 @@
     <AssociationSet Name="FK_OrderWarehouse_Warehouse" Association="BookStoreEntityModel.Store.FK_OrderWarehouse_Warehouse">
       <End Role="Warehouse" EntitySet="Warehouses" />
       <End Role="OrderWarehouse" EntitySet="OrderWarehouse" />
+    </AssociationSet>
+    <AssociationSet Name="OrderItemUsedStock" Association="BookStoreEntityModel.Store.OrderItemUsedStock">
+      <End Role="OrderItem" EntitySet="OrderItems" />
+      <End Role="UsedStock" EntitySet="UsedStocks" />
+    </AssociationSet>
+    <AssociationSet Name="UsedStockStock" Association="BookStoreEntityModel.Store.UsedStockStock">
+      <End Role="UsedStock" EntitySet="UsedStocks" />
+      <End Role="Stock" EntitySet="Stocks" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Users">
@@ -109,8 +118,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Quantity" Type="int" Nullable="true" />
+    <Property Name="Book_Id" Type="int" Nullable="false" />
     <Property Name="Warehouse_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="LoginCredentials">
@@ -130,7 +140,6 @@
     <Property Name="Author" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Genre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Price" Type="float" Nullable="false" />
-    <Property Name="Stock_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -145,6 +154,15 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsedStocks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderItemId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Stock_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
@@ -223,14 +241,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="BookStock">
-    <End Role="Book" Type="BookStoreEntityModel.Store.Books" Multiplicity="*" />
-    <End Role="Stock" Type="BookStoreEntityModel.Store.Stocks" Multiplicity="1" />
+    <End Role="Book" Type="BookStoreEntityModel.Store.Books" Multiplicity="1" />
+    <End Role="Stock" Type="BookStoreEntityModel.Store.Stocks" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Stock">
+      <Principal Role="Book">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Book">
-        <PropertyRef Name="Stock_Id" />
+      <Dependent Role="Stock">
+        <PropertyRef Name="Book_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -243,6 +261,30 @@
       </Principal>
       <Dependent Role="Stock">
         <PropertyRef Name="Warehouse_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderItemUsedStock">
+    <End Role="OrderItem" Type="BookStoreEntityModel.Store.OrderItems" Multiplicity="1" />
+    <End Role="UsedStock" Type="BookStoreEntityModel.Store.UsedStocks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsedStock">
+        <PropertyRef Name="OrderItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsedStockStock">
+    <End Role="UsedStock" Type="BookStoreEntityModel.Store.UsedStocks" Multiplicity="*" />
+    <End Role="Stock" Type="BookStoreEntityModel.Store.Stocks" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stock">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsedStock">
+        <PropertyRef Name="Stock_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -344,6 +386,15 @@
             <End Role="Order" EntitySet="Orders" />
             <End Role="Warehouse" EntitySet="Warehouses" />
           </AssociationSet>
+          <EntitySet Name="UsedStocks" EntityType="BookStoreEntityModel.UsedStock" />
+          <AssociationSet Name="OrderItemUsedStock" Association="BookStoreEntityModel.OrderItemUsedStock">
+            <End Role="OrderItem" EntitySet="OrderItems" />
+            <End Role="UsedStock" EntitySet="UsedStocks" />
+          </AssociationSet>
+          <AssociationSet Name="UsedStockStock" Association="BookStoreEntityModel.UsedStockStock">
+            <End Role="UsedStock" EntitySet="UsedStocks" />
+            <End Role="Stock" EntitySet="Stocks" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -391,15 +442,17 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="Int32" Name="Quantity" Nullable="false" />
           <NavigationProperty Name="Book" Relationship="BookStoreEntityModel.OrderItemBook" FromRole="OrderItem" ToRole="Book" />
+          <NavigationProperty Name="UsedStocks" Relationship="BookStoreEntityModel.OrderItemUsedStock" FromRole="OrderItem" ToRole="UsedStock" />
         </EntityType>
         <EntityType Name="Stock">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="Int32" Name="Quantity" Nullable="true" />
           <NavigationProperty Name="Book" Relationship="BookStoreEntityModel.BookStock" FromRole="Stock" ToRole="Book" />
           <NavigationProperty Name="Warehouse" Relationship="BookStoreEntityModel.StockWarehouse" FromRole="Stock" ToRole="Warehouse" />
+          <NavigationProperty Name="UsedStocks" Relationship="BookStoreEntityModel.UsedStockStock" FromRole="Stock" ToRole="UsedStock" />
         </EntityType>
         <Association Name="OrderOrderItem">
           <End Type="BookStoreEntityModel.Order" Role="Order" Multiplicity="1" />
@@ -472,6 +525,32 @@
         <Association Name="OrderWarehouse">
           <End Type="BookStoreEntityModel.Order" Role="Order" Multiplicity="*" />
           <End Type="BookStoreEntityModel.Warehouse" Role="Warehouse" Multiplicity="*" />
+        </Association>
+        <EntityType Name="UsedStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="OrderItem" Relationship="BookStoreEntityModel.OrderItemUsedStock" FromRole="UsedStock" ToRole="OrderItem" />
+          <Property Name="OrderItemId" Type="Int32" Nullable="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <NavigationProperty Name="Stock" Relationship="BookStoreEntityModel.UsedStockStock" FromRole="UsedStock" ToRole="Stock" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="OrderItemUsedStock">
+          <End Type="BookStoreEntityModel.OrderItem" Role="OrderItem" Multiplicity="1" />
+          <End Type="BookStoreEntityModel.UsedStock" Role="UsedStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsedStock">
+              <PropertyRef Name="OrderItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsedStockStock">
+          <End Type="BookStoreEntityModel.UsedStock" Role="UsedStock" Multiplicity="*" />
+          <End Type="BookStoreEntityModel.Stock" Role="Stock" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -565,6 +644,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UsedStocks">
+      <EntityTypeMapping TypeName="IsTypeOf(BookStoreEntityModel.UsedStock)">
+        <MappingFragment StoreEntitySet="UsedStocks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderItemId" ColumnName="OrderItemId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="OrderOrderItem" TypeName="BookStoreEntityModel.OrderOrderItem" StoreEntitySet="OrderItems">
       <EndProperty Name="Order">
         <ScalarProperty Name="Id" ColumnName="OrderOrderItem_OrderItem_Id" />
@@ -613,11 +701,11 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="BookStock" TypeName="BookStoreEntityModel.BookStock" StoreEntitySet="Books">
-      <EndProperty Name="Stock">
-        <ScalarProperty Name="Id" ColumnName="Stock_Id" />
-      </EndProperty>
+    <AssociationSetMapping Name="BookStock" TypeName="BookStoreEntityModel.BookStock" StoreEntitySet="Stocks">
       <EndProperty Name="Book">
+        <ScalarProperty Name="Id" ColumnName="Book_Id" />
+      </EndProperty>
+      <EndProperty Name="Stock">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
@@ -635,6 +723,14 @@
       </EndProperty>
       <EndProperty Name="Warehouse">
         <ScalarProperty Name="Id" ColumnName="Warehouses_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UsedStockStock" TypeName="BookStoreEntityModel.UsedStockStock" StoreEntitySet="UsedStocks">
+      <EndProperty Name="Stock">
+        <ScalarProperty Name="Id" ColumnName="Stock_Id" />
+      </EndProperty>
+      <EndProperty Name="UsedStock">
+        <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
@@ -698,6 +794,9 @@
         <edmx:EntityTypeShape EntityType="BookStoreEntityModel.Warehouse" Width="1.5" PointX="7.875" PointY="7.375" />
         <edmx:AssociationConnector Association="BookStoreEntityModel.StockWarehouse" />
         <edmx:AssociationConnector Association="BookStoreEntityModel.OrderWarehouse" />
+        <edmx:EntityTypeShape EntityType="BookStoreEntityModel.UsedStock" Width="1.5" PointX="1.875" PointY="10" />
+        <edmx:AssociationConnector Association="BookStoreEntityModel.OrderItemUsedStock" />
+        <edmx:AssociationConnector Association="BookStoreEntityModel.UsedStockStock" />
       </edmx:Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

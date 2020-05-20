@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/15/2020 00:15:21
+-- Date Created: 05/20/2020 20:14:49
 -- Generated from EDMX file: C:\Users\Katherine\Documents\Uni\year 4 s1\COMP5348\COMP5348-Group7-Project\BookStore.Entities\BookStore.Business.Entities\BookStoreEntityModel.edmx
 -- --------------------------------------------------
 
@@ -39,7 +39,7 @@ IF OBJECT_ID(N'[dbo].[FK_DeliveryOrder]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Deliveries] DROP CONSTRAINT [FK_DeliveryOrder];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BookStock]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Books] DROP CONSTRAINT [FK_BookStock];
+    ALTER TABLE [dbo].[Stocks] DROP CONSTRAINT [FK_BookStock];
 GO
 IF OBJECT_ID(N'[dbo].[FK_StockWarehouse]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Stocks] DROP CONSTRAINT [FK_StockWarehouse];
@@ -49,6 +49,12 @@ IF OBJECT_ID(N'[dbo].[FK_OrderWarehouse_Order]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_OrderWarehouse_Warehouse]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[OrderWarehouse] DROP CONSTRAINT [FK_OrderWarehouse_Warehouse];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OrderItemUsedStock]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UsedStocks] DROP CONSTRAINT [FK_OrderItemUsedStock];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UsedStockStock]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UsedStocks] DROP CONSTRAINT [FK_UsedStockStock];
 GO
 
 -- --------------------------------------------------
@@ -82,6 +88,9 @@ GO
 IF OBJECT_ID(N'[dbo].[Warehouses]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Warehouses];
 GO
+IF OBJECT_ID(N'[dbo].[UsedStocks]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UsedStocks];
+GO
 IF OBJECT_ID(N'[dbo].[UserRole]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UserRole];
 GO
@@ -99,7 +108,7 @@ CREATE TABLE [dbo].[Users] (
     [Name] nvarchar(max)  NOT NULL,
     [Address] nvarchar(max)  NOT NULL,
     [Email] nvarchar(max)  NOT NULL,
-    [Revision] varbinary(max)  NOT NULL,
+    [Revision] timestamp  NOT NULL,
     [BankAccountNumber] int  NOT NULL,
     [LoginCredential_Id] int  NOT NULL
 );
@@ -138,7 +147,7 @@ GO
 
 -- Creating table 'Stocks'
 CREATE TABLE [dbo].[Stocks] (
-    [Id] uniqueidentifier  NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Quantity] int  NULL,
     [Book_Id] int  NOT NULL,
     [Warehouse_Id] int  NOT NULL
@@ -174,6 +183,15 @@ GO
 CREATE TABLE [dbo].[Warehouses] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'UsedStocks'
+CREATE TABLE [dbo].[UsedStocks] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [OrderItemId] int  NOT NULL,
+    [Quantity] int  NOT NULL,
+    [Stock_Id] int  NOT NULL
 );
 GO
 
@@ -246,6 +264,12 @@ GO
 -- Creating primary key on [Id] in table 'Warehouses'
 ALTER TABLE [dbo].[Warehouses]
 ADD CONSTRAINT [PK_Warehouses]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'UsedStocks'
+ALTER TABLE [dbo].[UsedStocks]
+ADD CONSTRAINT [PK_UsedStocks]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -416,6 +440,36 @@ GO
 CREATE INDEX [IX_FK_OrderWarehouse_Warehouse]
 ON [dbo].[OrderWarehouse]
     ([Warehouses_Id]);
+GO
+
+-- Creating foreign key on [OrderItemId] in table 'UsedStocks'
+ALTER TABLE [dbo].[UsedStocks]
+ADD CONSTRAINT [FK_OrderItemUsedStock]
+    FOREIGN KEY ([OrderItemId])
+    REFERENCES [dbo].[OrderItems]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_OrderItemUsedStock'
+CREATE INDEX [IX_FK_OrderItemUsedStock]
+ON [dbo].[UsedStocks]
+    ([OrderItemId]);
+GO
+
+-- Creating foreign key on [Stock_Id] in table 'UsedStocks'
+ALTER TABLE [dbo].[UsedStocks]
+ADD CONSTRAINT [FK_UsedStockStock]
+    FOREIGN KEY ([Stock_Id])
+    REFERENCES [dbo].[Stocks]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UsedStockStock'
+CREATE INDEX [IX_FK_UsedStockStock]
+ON [dbo].[UsedStocks]
+    ([Stock_Id]);
 GO
 
 -- --------------------------------------------------
