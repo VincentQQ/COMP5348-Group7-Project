@@ -142,6 +142,7 @@ namespace BookStore.Business.Components
                         { 
                             // ask the delivery service to organise delivery
                             PlaceDeliveryForOrder(lOrder);
+                            Console.WriteLine(DateTime.Now.ToString() + String.Format("    Delivery for order {0} requested to DeliveryCo", lOrder.OrderNumber));
                         }
 
                         // SendOrderPlacedConfirmation(pOrder);
@@ -263,7 +264,7 @@ namespace BookStore.Business.Components
             try
             {
                 ExternalServiceFactory.Instance.TransferService.Transfer(pTotal, pCustomerAccountNumber, RetrieveBookStoreAccountNumber());
-                Console.WriteLine(String.Format("Order payment of {0} deducted from account {1}", pTotal, pCustomerAccountNumber));
+                Console.WriteLine(DateTime.Now.ToString() + String.Format("    Order payment of {0} deducted from account {1}", pTotal, pCustomerAccountNumber));
             }
             catch
             {
@@ -276,7 +277,7 @@ namespace BookStore.Business.Components
             try
             {
                 ExternalServiceFactory.Instance.TransferService.Transfer(pTotal, RetrieveBookStoreAccountNumber(), pCustomerAccountNumber);
-                Console.WriteLine(String.Format("Order refund of {0} transferred to account {1}", pTotal, pCustomerAccountNumber));
+                Console.WriteLine(DateTime.Now.ToString() + String.Format("    Order refund of {0} transferred to account {1}", pTotal, pCustomerAccountNumber));
             }
             catch
             {
