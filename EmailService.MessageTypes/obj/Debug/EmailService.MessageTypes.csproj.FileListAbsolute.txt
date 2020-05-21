@@ -8,3 +8,15 @@ C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\EmailS
 C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.csproj.CoreCompileInputs.cache
 C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.dll
 C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.pdb
+C:\Users\ablin\Desktop\comp5348\BookStoreApplication\EmailService.MessageTypes\bin\Debug\EmailService.MessageTypes.dll
+C:\Users\ablin\Desktop\comp5348\BookStoreApplication\EmailService.MessageTypes\bin\Debug\EmailService.MessageTypes.pdb
+C:\Users\ablin\Desktop\comp5348\BookStoreApplication\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.dll
+C:\Users\ablin\Desktop\comp5348\BookStoreApplication\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.pdb
+C:\Users\ablin\Desktop\comp5348\BookStoreApplication\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\BookStoreApplication\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.csprojAssemblyReference.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.MessageTypes\bin\Debug\EmailService.MessageTypes.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.MessageTypes\bin\Debug\EmailService.MessageTypes.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.csprojAssemblyReference.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.pdb
