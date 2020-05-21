@@ -74,3 +74,28 @@ C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\Bank.A
 C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\Bank.Application\Bank.Process\obj\x86\Debug\Bank.Process.csproj.CopyComplete
 C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\Bank.Application\Bank.Process\obj\x86\Debug\Bank.Process.exe
 C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\Bank.Application\Bank.Process\obj\x86\Debug\Bank.Process.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Process.exe.config
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Process.exe
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Process.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Business.Components.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Business.Components.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Business.Entities.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Services.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Services.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Microsoft.Practices.Unity.ServiceLocatorAdapter.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Microsoft.Practices.Unity.StaticFactory.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Business.Components.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Business.Components.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Business.Entities.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Business.Entities.dll.config
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Services.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\bin\Debug\Bank.Services.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\obj\x86\Debug\Bank.Process.csprojAssemblyReference.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\obj\x86\Debug\Bank.Process.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\obj\x86\Debug\Bank.Process.csproj.CopyComplete
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\obj\x86\Debug\Bank.Process.exe
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Application\Bank.Process\obj\x86\Debug\Bank.Process.pdb

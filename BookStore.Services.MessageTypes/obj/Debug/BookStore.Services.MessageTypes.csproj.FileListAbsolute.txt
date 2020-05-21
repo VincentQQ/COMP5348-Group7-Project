@@ -21,3 +21,15 @@ C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\BookSt
 C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\BookStore.Services.MessageTypes\obj\Debug\BookStore.Services.MessageTypes.csproj.CopyComplete
 C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\BookStore.Services.MessageTypes\obj\Debug\BookStore.Services.MessageTypes.dll
 C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\BookStore.Services.MessageTypes\obj\Debug\BookStore.Services.MessageTypes.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\bin\Debug\BookStore.Services.MessageTypes.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\bin\Debug\BookStore.Services.MessageTypes.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\bin\Debug\Common.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\bin\Debug\Common.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\bin\Debug\Common.dll.config
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\obj\Debug\BookStore.Services.MessageTypes.csprojAssemblyReference.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\obj\Debug\BookStore.Services.MessageTypes.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\obj\Debug\BookStore.Services.MessageTypes.csproj.CopyComplete
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\obj\Debug\BookStore.Services.MessageTypes.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Services.MessageTypes\obj\Debug\BookStore.Services.MessageTypes.pdb
