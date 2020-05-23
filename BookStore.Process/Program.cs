@@ -17,16 +17,22 @@ using System.Transactions;
 using System.ServiceModel.Description;
 using BookStore.Business.Components.Interfaces;
 using BookStore.WebClient.CustomAuth;
+using System.Messaging;
 
 namespace BookStore.Process
 {
     public class Program
     {
+        private const String emailQueue = ".\\private$\\EmailServiceQueue";
         static void Main(string[] args)
         {
             ResolveDependencies();
             InsertDummyEntities();
+
+            EnsureQueueExists(emailQueue);
+
             HostServices();
+            
         }
 
         private static void InsertDummyEntities()
@@ -198,6 +204,12 @@ namespace BookStore.Process
         private static String GetAssemblyQualifiedServiceName(String pServiceName)
         {
             return String.Format("{0}, {1}", pServiceName, System.Configuration.ConfigurationManager.AppSettings["ServiceAssemblyName"].ToString());
+        }
+        private static void EnsureQueueExists(String qName)
+        {
+            // Create the transacted MSMQ queue if necessary.
+            if (!MessageQueue.Exists(qName))
+                MessageQueue.Create(qName, true);
         }
     }
 }

@@ -14,3 +14,8 @@ C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Business\Bank.Busin
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Business\Bank.Business.Components.Interfaces\obj\Debug\Bank.Business.Components.Interfaces.csproj.CoreCompileInputs.cache
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Business\Bank.Business.Components.Interfaces\obj\Debug\Bank.Business.Components.Interfaces.dll
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Business\Bank.Business.Components.Interfaces\obj\Debug\Bank.Business.Components.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Business.Components.Interfaces\bin\Debug\Bank.Business.Components.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Business.Components.Interfaces\bin\Debug\Bank.Business.Components.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Business.Components.Interfaces\obj\Debug\Bank.Business.Components.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Business.Components.Interfaces\obj\Debug\Bank.Business.Components.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Business.Components.Interfaces\obj\Debug\Bank.Business.Components.Interfaces.pdb

@@ -13,3 +13,8 @@ C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\DeliveryCo.MessageTypes\
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\DeliveryCo.MessageTypes\obj\Debug\DeliveryCo.MessageTypes.csproj.CoreCompileInputs.cache
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\DeliveryCo.MessageTypes\obj\Debug\DeliveryCo.MessageTypes.dll
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\DeliveryCo.MessageTypes\obj\Debug\DeliveryCo.MessageTypes.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\DeliveryCo.MessageTypes\bin\Debug\DeliveryCo.MessageTypes.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\DeliveryCo.MessageTypes\bin\Debug\DeliveryCo.MessageTypes.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\DeliveryCo.MessageTypes\obj\Debug\DeliveryCo.MessageTypes.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\DeliveryCo.MessageTypes\obj\Debug\DeliveryCo.MessageTypes.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\DeliveryCo.MessageTypes\obj\Debug\DeliveryCo.MessageTypes.pdb

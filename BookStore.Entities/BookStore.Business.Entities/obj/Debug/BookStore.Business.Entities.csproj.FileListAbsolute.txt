@@ -26,3 +26,14 @@ C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Entities\BookS
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Entities\BookStore.Business.Entities\obj\Debug\BookStore.Business.Entities.csproj.CopyComplete
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Entities\BookStore.Business.Entities\obj\Debug\BookStore.Business.Entities.dll
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\BookStore.Entities\BookStore.Business.Entities\obj\Debug\BookStore.Business.Entities.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\BookStore.Entities\BookStore.Business.Entities\obj\Debug\BookStore.Business.Entities.csprojAssemblyReference.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\BookStore.Entities\BookStore.Business.Entities\obj\Debug\BookStore.Business.Entities.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\BookStore.Entities\BookStore.Business.Entities\bin\Debug\BookStore.Business.Entities.dll.config
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\BookStore.Entities\BookStore.Business.Entities\bin\Debug\BookStore.Business.Entities.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\BookStore.Entities\BookStore.Business.Entities\bin\Debug\BookStore.Business.Entities.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\BookStore.Entities\BookStore.Business.Entities\bin\Debug\Common.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\BookStore.Entities\BookStore.Business.Entities\bin\Debug\Common.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\BookStore.Entities\BookStore.Business.Entities\bin\Debug\Common.dll.config
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\BookStore.Entities\BookStore.Business.Entities\obj\Debug\BookStore.Business.Entities.csproj.CopyComplete
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\BookStore.Entities\BookStore.Business.Entities\obj\Debug\BookStore.Business.Entities.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\BookStore.Entities\BookStore.Business.Entities\obj\Debug\BookStore.Business.Entities.pdb

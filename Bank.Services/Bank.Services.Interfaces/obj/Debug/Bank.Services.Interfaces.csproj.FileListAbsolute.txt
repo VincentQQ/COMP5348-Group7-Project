@@ -39,3 +39,15 @@ C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Services\Bank.Servi
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Services\Bank.Services.Interfaces\obj\Debug\Bank.Services.Interfaces.csproj.CopyComplete
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Services\Bank.Services.Interfaces\obj\Debug\Bank.Services.Interfaces.dll
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Services\Bank.Services.Interfaces\obj\Debug\Bank.Services.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\bin\Debug\Bank.Services.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\bin\Debug\Bank.Services.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\bin\Debug\Bank.Business.Entities.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\bin\Debug\EntityFramework.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\bin\Debug\Bank.Business.Entities.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\bin\Debug\Bank.Business.Entities.dll.config
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\bin\Debug\EntityFramework.xml
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\obj\Debug\Bank.Services.Interfaces.csprojAssemblyReference.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\obj\Debug\Bank.Services.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\obj\Debug\Bank.Services.Interfaces.csproj.CopyComplete
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\obj\Debug\Bank.Services.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Services\Bank.Services.Interfaces\obj\Debug\Bank.Services.Interfaces.pdb

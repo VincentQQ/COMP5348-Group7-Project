@@ -46,3 +46,15 @@ C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Business\Bank.Servi
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Business\Bank.Services\obj\Debug\Bank.Services.csproj.CopyComplete
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Business\Bank.Services\obj\Debug\Bank.Services.dll
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\Bank.Business\Bank.Services\obj\Debug\Bank.Services.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\bin\Debug\Bank.Services.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\bin\Debug\Bank.Services.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\bin\Debug\Bank.Business.Components.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\bin\Debug\Bank.Services.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\bin\Debug\Bank.Services.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\bin\Debug\Bank.Business.Components.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\obj\Debug\Bank.Services.csprojAssemblyReference.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\obj\Debug\Bank.Services.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\obj\Debug\Bank.Services.csproj.CopyComplete
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\obj\Debug\Bank.Services.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\Bank.Business\Bank.Services\obj\Debug\Bank.Services.pdb

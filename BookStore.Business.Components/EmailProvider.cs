@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Common;
+using Common.Model;
 using BookStore.Business.Components.Interfaces;
+using BookStore.Business.Components.PublisherService;
+using BookStore.Business.Entities.Model;
+using Bookstore.Business.Components.Transformations;
 
 namespace BookStore.Business.Components
 {
@@ -10,15 +15,18 @@ namespace BookStore.Business.Components
     {
         public void SendMessage(EmailMessage pMessage)
         {
-            ExternalServiceFactory.Instance.EmailService.SendEmail
-                (
-                    new global::EmailService.MessageTypes.EmailMessage()
-                    {
-                        Message = pMessage.Message,
-                        ToAddresses = pMessage.ToAddress,
-                        Date = DateTime.Now
-                    }
-                );
+            EmailMessageItem lItem = new EmailMessageItem()
+            {
+                Date = DateTime.Now,
+                Message = pMessage.Message,
+                ToAddresses = pMessage.ToAddress
+            };
+            EmailMessageItemToNewEmailMessage lVisitor = new EmailMessageItemToNewEmailMessage();
+            lVisitor.Visit(lItem);
+
+            PublisherServiceClient lClient = new PublisherServiceClient();
+            lClient.Publish(lVisitor.Result);
+            Console.WriteLine("New Email : " + DateTime.Now + " publsihed to Topic Email");
         }
     }
 }

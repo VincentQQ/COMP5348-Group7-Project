@@ -19,3 +19,8 @@ C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.MessageType
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.csproj.CoreCompileInputs.cache
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.dll
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.MessageTypes\bin\Debug\EmailService.MessageTypes.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.MessageTypes\bin\Debug\EmailService.MessageTypes.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.MessageTypes\obj\Debug\EmailService.MessageTypes.pdb

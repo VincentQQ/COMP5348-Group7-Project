@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 namespace Common.Model
 {
     [DataContract]
+    [KnownType(typeof(NewEmailMessage))]
     public abstract class Message : IVisitable
     {
         [DataMember]

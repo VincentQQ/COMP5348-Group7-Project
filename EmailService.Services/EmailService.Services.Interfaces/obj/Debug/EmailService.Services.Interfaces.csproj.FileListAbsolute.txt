@@ -45,3 +45,15 @@ C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Services\Em
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Services\EmailService.Services.Interfaces\obj\Debug\EmailService.Services.Interfaces.csproj.CopyComplete
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Services\EmailService.Services.Interfaces\obj\Debug\EmailService.Services.Interfaces.dll
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Services\EmailService.Services.Interfaces\obj\Debug\EmailService.Services.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\bin\Debug\EmailService.Services.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\bin\Debug\EmailService.Services.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\bin\Debug\EmailService.Business.Entities.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\bin\Debug\EmailService.MessageTypes.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\bin\Debug\EmailService.Business.Entities.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\bin\Debug\EmailService.Business.Entities.dll.config
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\bin\Debug\EmailService.MessageTypes.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\obj\Debug\EmailService.Services.Interfaces.csprojAssemblyReference.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\obj\Debug\EmailService.Services.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\obj\Debug\EmailService.Services.Interfaces.csproj.CopyComplete
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\obj\Debug\EmailService.Services.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Services\EmailService.Services.Interfaces\obj\Debug\EmailService.Services.Interfaces.pdb

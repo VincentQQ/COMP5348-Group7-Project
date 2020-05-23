@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\NewEmailMessage.cs" />
     <Compile Include="SubscriberServiceHost.cs" />
     <Compile Include="Model\Message.cs" />
     <Compile Include="Interfaces\ISubscriberService.cs" />

@@ -37,3 +37,13 @@ C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Business.En
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Business.Entities.Interfaces\obj\Debug\EmailService.Business.Components.Interfaces.csproj.CopyComplete
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Business.Entities.Interfaces\obj\Debug\EmailService.Business.Components.Interfaces.dll
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Business.Entities.Interfaces\obj\Debug\EmailService.Business.Components.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Business.Entities.Interfaces\bin\Debug\EmailService.Business.Components.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Business.Entities.Interfaces\bin\Debug\EmailService.Business.Components.Interfaces.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Business.Entities.Interfaces\bin\Debug\EmailService.Business.Entities.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Business.Entities.Interfaces\bin\Debug\EmailService.Business.Entities.pdb
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Business.Entities.Interfaces\bin\Debug\EmailService.Business.Entities.dll.config
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Business.Entities.Interfaces\obj\Debug\EmailService.Business.Components.Interfaces.csprojAssemblyReference.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Business.Entities.Interfaces\obj\Debug\EmailService.Business.Components.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Business.Entities.Interfaces\obj\Debug\EmailService.Business.Components.Interfaces.csproj.CopyComplete
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Business.Entities.Interfaces\obj\Debug\EmailService.Business.Components.Interfaces.dll
+C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Business.Entities.Interfaces\obj\Debug\EmailService.Business.Components.Interfaces.pdb
