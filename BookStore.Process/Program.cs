@@ -64,6 +64,9 @@ namespace BookStore.Process
             {
                 if (lContainer.Books.Count() == 0)
                 {
+                    Warehouse neutralBay = new Warehouse() { Name = "Neutral Bay" };
+                    lContainer.Warehouses.Add(neutralBay);
+
                     Book lGreatExpectations = new Book()
                     {
                         Author = "Jane Austen",
@@ -78,7 +81,7 @@ namespace BookStore.Process
                     {
                         Book = lGreatExpectations,
                         Quantity = 5,
-                        Warehouse = "Neutral Bay"
+                        Warehouse = neutralBay
                     };
 
                     lContainer.Stocks.Add(lGreatExpectationsStock);
@@ -97,13 +100,17 @@ namespace BookStore.Process
                     {
                         Book = lSoloist,
                         Quantity = 7,
-                        Warehouse = "Neutral Bay"
+                        Warehouse = neutralBay
                     };
 
                     lContainer.Stocks.Add(lSoloistStock);
+                    List<Warehouse> warehouses = new List<Warehouse>();
 
                     for (int i = 1; i < 10; i++)
                     {
+                        Warehouse lWarehouse = new Warehouse() { Name = String.Format("Warehouse {0}", i) };
+                        lContainer.Warehouses.Add(lWarehouse);
+
                         Book lItem = new Book()
                         {
                             Author = String.Format("Author {0}", i.ToString()),
@@ -112,16 +119,30 @@ namespace BookStore.Process
                             Title = String.Format("Title {0}", i)
                         };
 
-                        lContainer.Stocks.Add(lSoloistStock);
+                        lContainer.Books.Add(lItem);
+                        // lContainer.Stocks.Add(lSoloistStock);
+                        foreach (Warehouse w in warehouses)
+                        {
+                            Stock s = new Stock()
+                            {
+                                Book = lItem,
+                                Quantity = (int)Math.Ceiling((10.0-i)/2),
+                                Warehouse = w
+                            };
+
+                            lContainer.Stocks.Add(s);
+                        }
 
                         Stock lStock = new Stock()
                         {
                             Book = lItem,
-                            Quantity = 10 + i,
-                            Warehouse = String.Format("Warehouse {0}", i)
+                            Quantity = 10,
+                            Warehouse = lWarehouse
                         };
 
                         lContainer.Stocks.Add(lStock);
+
+                        warehouses.Add(lWarehouse);
                     }
 
                     lContainer.SaveChanges();

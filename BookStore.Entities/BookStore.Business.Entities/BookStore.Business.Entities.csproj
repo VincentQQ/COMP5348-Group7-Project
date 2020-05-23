@@ -89,7 +89,6 @@
     <Compile Include="Partial\Delivery.cs" />
     <Compile Include="Partial\LoginCredential.cs" />
     <Compile Include="Partial\Order.cs" />
-    <Compile Include="Partial\Stock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs">
       <DependentUpon>BookStoreEntityModel.tt</DependentUpon>
@@ -97,7 +96,13 @@
     <Compile Include="Stock.cs">
       <DependentUpon>BookStoreEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UsedStock.cs">
+      <DependentUpon>BookStoreEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
+      <DependentUpon>BookStoreEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse.cs">
       <DependentUpon>BookStoreEntityModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

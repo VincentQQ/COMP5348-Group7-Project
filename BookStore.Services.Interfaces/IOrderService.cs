@@ -13,5 +13,13 @@ namespace BookStore.Services.Interfaces
         [OperationContract]
         [FaultContract(typeof(InsufficientStockFault))]
         void SubmitOrder(Order pOrder);
+        [OperationContract]
+        List<Order> GetOrders(int pUserId);
+        [OperationContract]
+        List<Order> GetAllOrders(int pUserId);
+        [OperationContract]
+        void RequestDelivery(int pOrderId);
+        [OperationContract]
+        void CancelOrder(int pOrderId);
     }
 }

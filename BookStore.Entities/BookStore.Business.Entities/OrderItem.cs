@@ -14,9 +14,17 @@ namespace BookStore.Business.Entities
     
     public partial class OrderItem
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public OrderItem()
+        {
+            this.UsedStocks = new HashSet<UsedStock>();
+        }
+    
         public int Id { get; set; }
         public int Quantity { get; set; }
     
         public virtual Book Book { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UsedStock> UsedStocks { get; set; }
     }
 }

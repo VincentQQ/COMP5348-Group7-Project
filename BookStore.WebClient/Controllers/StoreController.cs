@@ -19,5 +19,24 @@ namespace BookStore.WebClient.Controllers
         {
             return View(new CatalogueViewModel());
         }
+
+        public ActionResult OrderHistory(UserCache pUser)
+        {
+            return View(new OrderHistoryModel(pUser.Model));
+        }
+
+        public RedirectToRouteResult CancelOrder(int pOrderId, string pReturnUrl)
+        {
+            ServiceFactory.Instance.OrderService.CancelOrder(pOrderId);
+            Console.WriteLine("Cancel Order "+pOrderId);
+            return RedirectToAction("OrderHistory", new { pReturnUrl });
+        }
+
+        public RedirectToRouteResult RequestDelivery(int pOrderId, string pReturnUrl)
+        {
+            ServiceFactory.Instance.OrderService.RequestDelivery(pOrderId);
+            Console.WriteLine("Request Delivery " + pOrderId);
+            return RedirectToAction("OrderHistory", new { pReturnUrl });
+        }
     }
 }
