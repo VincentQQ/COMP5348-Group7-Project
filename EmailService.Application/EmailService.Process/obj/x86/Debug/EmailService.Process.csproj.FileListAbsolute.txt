@@ -137,7 +137,6 @@ C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Application
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Application\EmailService.Process\obj\x86\Debug\EmailService.Process.csproj.CopyComplete
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Application\EmailService.Process\obj\x86\Debug\EmailService.Process.exe
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Application\EmailService.Process\obj\x86\Debug\EmailService.Process.pdb
-C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project\EmailService.Application\EmailService.Process\bin\Debug\AutoMapper.Net4.dll
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Application\EmailService.Process\obj\x86\Debug\EmailService.Process.csprojAssemblyReference.cache
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Application\EmailService.Process\obj\x86\Debug\EmailService.Process.csproj.CoreCompileInputs.cache
 C:\Users\ablin\Desktop\comp5348\COMP5348-Group7-Project_mom\EmailService.Application\EmailService.Process\obj\x86\Debug\EmailService.Process.exe

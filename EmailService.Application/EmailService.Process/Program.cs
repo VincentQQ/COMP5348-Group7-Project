@@ -20,7 +20,7 @@ namespace EmailService.Process
     {
         private static global::Common.SubscriberServiceHost mhost;
         private const String eAddress = "net.msmq://localhost/private/EmailQueueTransacted";
-        private const String eMexAddress = "net.tcp://localhost/private/EmailQueueTransacted/mex";
+        private const String eMexAddress = "net.tcp://localhost:9039/EmailQueueTransacted/mex";
         static void Main(string[] args)
         {
             ResolveDependencies();
