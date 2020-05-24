@@ -26,7 +26,7 @@ namespace BookStore.Business.Components
 
             PublisherServiceClient lClient = new PublisherServiceClient();
             lClient.Publish(lVisitor.Result);
-            Console.WriteLine("A new email to " + pMessage.ToAddress + "has been published to Email Queue at " + DateTime.Now);
+            Console.WriteLine(DateTime.Now.ToString() + "   New email to " + pMessage.ToAddress + "has been published to Email Queue");
         }
     }
 }

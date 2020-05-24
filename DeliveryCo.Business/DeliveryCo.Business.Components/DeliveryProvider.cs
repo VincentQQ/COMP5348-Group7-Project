@@ -30,7 +30,7 @@ namespace DeliveryCo.Business.Components
 
         private void ScheduleDelivery(DeliveryInfo pDeliveryInfo)
         {
-            Console.WriteLine("Delivering to" + pDeliveryInfo.DestinationAddress);
+            Console.WriteLine(DateTime.Now.ToString() + "   Delivering to" + pDeliveryInfo.DestinationAddress);
             Thread.Sleep(3000);
             //notifying of delivery completion
             using (TransactionScope lScope = new TransactionScope())

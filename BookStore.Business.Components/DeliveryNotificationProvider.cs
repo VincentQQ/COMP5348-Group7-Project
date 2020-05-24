@@ -18,7 +18,7 @@ namespace BookStore.Business.Components
 
         public void NotifyDeliveryCompletion(Guid pDeliveryId, Entities.DeliveryStatus status)
         {
-            Console.WriteLine(" + Notify Delivery " + pDeliveryId.ToString() + " is complete");
+            Console.WriteLine(DateTime.Now.ToString() + "   + Notify Delivery " + pDeliveryId.ToString() + " is complete");
             Order lAffectedOrder = RetrieveDeliveryOrder(pDeliveryId);
             UpdateDeliveryStatus(pDeliveryId, status);
             if (status == Entities.DeliveryStatus.Delivered)
@@ -50,7 +50,7 @@ namespace BookStore.Business.Components
                     lDelivery.DeliveryStatus = status;
                     lContainer.SaveChanges();
                 }
-                Console.WriteLine(" + Update Delivery " + pDeliveryId.ToString() + " to status-" + status.ToString());
+                Console.WriteLine(DateTime.Now.ToString() + "   + Update Delivery " + pDeliveryId.ToString() + " to status-" + status.ToString());
                 lScope.Complete();
             }
         }

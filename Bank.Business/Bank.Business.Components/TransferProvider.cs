@@ -34,11 +34,11 @@ namespace Bank.Business.Components
                     lContainer.SaveChanges();
                     lScope.Complete();
 
-                    Console.WriteLine("Sucessful transferred money $" + pAmount.ToString() + " from account-" + pFromAcctNumber.ToString() + " to account-" + pToAcctNumber.ToString() );
+                    Console.WriteLine(DateTime.Now.ToString() + "   Sucessful transferred money $" + pAmount.ToString() + " from account-" + pFromAcctNumber.ToString() + " to account-" + pToAcctNumber.ToString() );
                 }
                 catch (Exception lException)
                 {
-                    Console.WriteLine("Error occured while transferring money:  " + lException.Message);
+                    Console.WriteLine(DateTime.Now.ToString() + "   Error occured while transferring money:  " + lException.Message);
                     throw;
                 }
             }
