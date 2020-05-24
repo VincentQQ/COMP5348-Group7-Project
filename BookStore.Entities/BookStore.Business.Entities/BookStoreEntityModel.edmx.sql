@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/16/2019 19:33:12
--- Generated from EDMX file: C:\Users\gre403\Documents\Basser\COMP5348 2019\Group Project\GroupProject\BookStore.Entities\BookStore.Business.Entities\BookStoreEntityModel.edmx
+-- Date Created: 05/20/2020 20:14:49
+-- Generated from EDMX file: C:\Users\Katherine\Documents\Uni\year 4 s1\COMP5348\COMP5348-Group7-Project\BookStore.Entities\BookStore.Business.Entities\BookStoreEntityModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -39,7 +39,22 @@ IF OBJECT_ID(N'[dbo].[FK_DeliveryOrder]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Deliveries] DROP CONSTRAINT [FK_DeliveryOrder];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BookStock]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Books] DROP CONSTRAINT [FK_BookStock];
+    ALTER TABLE [dbo].[Stocks] DROP CONSTRAINT [FK_BookStock];
+GO
+IF OBJECT_ID(N'[dbo].[FK_StockWarehouse]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Stocks] DROP CONSTRAINT [FK_StockWarehouse];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OrderWarehouse_Order]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OrderWarehouse] DROP CONSTRAINT [FK_OrderWarehouse_Order];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OrderWarehouse_Warehouse]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OrderWarehouse] DROP CONSTRAINT [FK_OrderWarehouse_Warehouse];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OrderItemUsedStock]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UsedStocks] DROP CONSTRAINT [FK_OrderItemUsedStock];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UsedStockStock]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UsedStocks] DROP CONSTRAINT [FK_UsedStockStock];
 GO
 
 -- --------------------------------------------------
@@ -70,8 +85,17 @@ GO
 IF OBJECT_ID(N'[dbo].[Roles]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Roles];
 GO
+IF OBJECT_ID(N'[dbo].[Warehouses]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Warehouses];
+GO
+IF OBJECT_ID(N'[dbo].[UsedStocks]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UsedStocks];
+GO
 IF OBJECT_ID(N'[dbo].[UserRole]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UserRole];
+GO
+IF OBJECT_ID(N'[dbo].[OrderWarehouse]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[OrderWarehouse];
 GO
 
 -- --------------------------------------------------
@@ -106,7 +130,6 @@ CREATE TABLE [dbo].[Orders] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Total] float  NULL,
     [OrderDate] datetime  NOT NULL,
-    [Warehouse] nvarchar(max)  NULL,
     [Store] nvarchar(max)  NULL,
     [OrderNumber] uniqueidentifier  NOT NULL,
     [Customer_Id] int  NOT NULL
@@ -124,9 +147,10 @@ GO
 
 -- Creating table 'Stocks'
 CREATE TABLE [dbo].[Stocks] (
-    [Id] uniqueidentifier  NOT NULL,
-    [Warehouse] nvarchar(max)  NOT NULL,
-    [Quantity] int  NULL
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Quantity] int  NULL,
+    [Book_Id] int  NOT NULL,
+    [Warehouse_Id] int  NOT NULL
 );
 GO
 
@@ -144,8 +168,7 @@ CREATE TABLE [dbo].[Books] (
     [Title] nvarchar(max)  NOT NULL,
     [Author] nvarchar(max)  NOT NULL,
     [Genre] nvarchar(max)  NOT NULL,
-    [Price] float  NOT NULL,
-    [Stock_Id] uniqueidentifier  NOT NULL
+    [Price] float  NOT NULL
 );
 GO
 
@@ -156,10 +179,33 @@ CREATE TABLE [dbo].[Roles] (
 );
 GO
 
+-- Creating table 'Warehouses'
+CREATE TABLE [dbo].[Warehouses] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'UsedStocks'
+CREATE TABLE [dbo].[UsedStocks] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [OrderItemId] int  NOT NULL,
+    [Quantity] int  NOT NULL,
+    [Stock_Id] int  NOT NULL
+);
+GO
+
 -- Creating table 'UserRole'
 CREATE TABLE [dbo].[UserRole] (
     [User_Id] int  NOT NULL,
     [Roles_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'OrderWarehouse'
+CREATE TABLE [dbo].[OrderWarehouse] (
+    [Orders_Id] int  NOT NULL,
+    [Warehouses_Id] int  NOT NULL
 );
 GO
 
@@ -215,10 +261,28 @@ ADD CONSTRAINT [PK_Roles]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
+-- Creating primary key on [Id] in table 'Warehouses'
+ALTER TABLE [dbo].[Warehouses]
+ADD CONSTRAINT [PK_Warehouses]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'UsedStocks'
+ALTER TABLE [dbo].[UsedStocks]
+ADD CONSTRAINT [PK_UsedStocks]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
 -- Creating primary key on [User_Id], [Roles_Id] in table 'UserRole'
 ALTER TABLE [dbo].[UserRole]
 ADD CONSTRAINT [PK_UserRole]
     PRIMARY KEY CLUSTERED ([User_Id], [Roles_Id] ASC);
+GO
+
+-- Creating primary key on [Orders_Id], [Warehouses_Id] in table 'OrderWarehouse'
+ALTER TABLE [dbo].[OrderWarehouse]
+ADD CONSTRAINT [PK_OrderWarehouse]
+    PRIMARY KEY CLUSTERED ([Orders_Id], [Warehouses_Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -324,18 +388,87 @@ ON [dbo].[Deliveries]
     ([Order_Id]);
 GO
 
--- Creating foreign key on [Stock_Id] in table 'Books'
-ALTER TABLE [dbo].[Books]
+-- Creating foreign key on [Book_Id] in table 'Stocks'
+ALTER TABLE [dbo].[Stocks]
 ADD CONSTRAINT [FK_BookStock]
-    FOREIGN KEY ([Stock_Id])
-    REFERENCES [dbo].[Stocks]
+    FOREIGN KEY ([Book_Id])
+    REFERENCES [dbo].[Books]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BookStock'
 CREATE INDEX [IX_FK_BookStock]
-ON [dbo].[Books]
+ON [dbo].[Stocks]
+    ([Book_Id]);
+GO
+
+-- Creating foreign key on [Warehouse_Id] in table 'Stocks'
+ALTER TABLE [dbo].[Stocks]
+ADD CONSTRAINT [FK_StockWarehouse]
+    FOREIGN KEY ([Warehouse_Id])
+    REFERENCES [dbo].[Warehouses]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_StockWarehouse'
+CREATE INDEX [IX_FK_StockWarehouse]
+ON [dbo].[Stocks]
+    ([Warehouse_Id]);
+GO
+
+-- Creating foreign key on [Orders_Id] in table 'OrderWarehouse'
+ALTER TABLE [dbo].[OrderWarehouse]
+ADD CONSTRAINT [FK_OrderWarehouse_Order]
+    FOREIGN KEY ([Orders_Id])
+    REFERENCES [dbo].[Orders]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Warehouses_Id] in table 'OrderWarehouse'
+ALTER TABLE [dbo].[OrderWarehouse]
+ADD CONSTRAINT [FK_OrderWarehouse_Warehouse]
+    FOREIGN KEY ([Warehouses_Id])
+    REFERENCES [dbo].[Warehouses]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_OrderWarehouse_Warehouse'
+CREATE INDEX [IX_FK_OrderWarehouse_Warehouse]
+ON [dbo].[OrderWarehouse]
+    ([Warehouses_Id]);
+GO
+
+-- Creating foreign key on [OrderItemId] in table 'UsedStocks'
+ALTER TABLE [dbo].[UsedStocks]
+ADD CONSTRAINT [FK_OrderItemUsedStock]
+    FOREIGN KEY ([OrderItemId])
+    REFERENCES [dbo].[OrderItems]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_OrderItemUsedStock'
+CREATE INDEX [IX_FK_OrderItemUsedStock]
+ON [dbo].[UsedStocks]
+    ([OrderItemId]);
+GO
+
+-- Creating foreign key on [Stock_Id] in table 'UsedStocks'
+ALTER TABLE [dbo].[UsedStocks]
+ADD CONSTRAINT [FK_UsedStockStock]
+    FOREIGN KEY ([Stock_Id])
+    REFERENCES [dbo].[Stocks]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UsedStockStock'
+CREATE INDEX [IX_FK_UsedStockStock]
+ON [dbo].[UsedStocks]
     ([Stock_Id]);
 GO
 

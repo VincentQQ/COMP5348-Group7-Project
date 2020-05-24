@@ -1,0 +1,60 @@
+﻿@model BookStore.WebClient.ViewModels.OrderHistoryModel
+
+@{
+    ViewBag.Title = "OrderHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderHistory</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var order in Model.Orders)
+    {
+        <tr>
+            <td>@order.Id</td>
+            <td>@order.OrderDate</td>
+            <td>
+                @if (order.Status == 1)
+                {
+                    <span>Delivered</span>
+                }
+                else
+                {
+                    <span>Processed</span>
+                }
+            </td>
+            <td>
+                @if (order.Status == 1)
+                {
+                    <span>N/A</span>
+                }
+                else if (!Model.isAdmin)
+                {
+                    using (Html.BeginForm("CancelOrder", "Store"))
+                    {
+                        @Html.Hidden("pOrderId", order.Id);
+                        @Html.Hidden("pReturnUrl", ViewContext.HttpContext.Request.Url.PathAndQuery);
+                        <input type="submit" value="Cancel Order" />
+                    }
+                }
+                else
+                {
+                    using (Html.BeginForm("RequestDelivery", "Store"))
+                    {
+                        @Html.Hidden("pOrderId", order.Id);
+                        @Html.Hidden("pReturnUrl", ViewContext.HttpContext.Request.Url.PathAndQuery);
+                        <input type="submit" value="Request Delivery" />
+                    }
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+

@@ -38,5 +38,33 @@ namespace BookStore.Services
                     new InsufficientStockFault() { ItemName = ise.ItemName });
             }
         }
+
+        public List<Order> GetOrders(int pUserId)
+        {
+            var internalResult = OrderProvider.GetOrders(pUserId);
+            var externalResult = MessageTypeConverter.Instance.Convert<
+                List<BookStore.Business.Entities.Order>,
+                List<BookStore.Services.MessageTypes.Order>>(internalResult);
+            return externalResult;
+        }
+
+        public List<Order> GetAllOrders(int pUserId)
+        {
+            var internalResult = OrderProvider.GetAllOrders(pUserId);
+            var externalResult = MessageTypeConverter.Instance.Convert<
+                List<BookStore.Business.Entities.Order>,
+                List<BookStore.Services.MessageTypes.Order>>(internalResult);
+            return externalResult;
+        }
+
+        public void RequestDelivery(int pOrderId)
+        {
+            OrderProvider.RequestDelivery(pOrderId);
+        }
+
+        public void CancelOrder(int pOrderId)
+        {
+            OrderProvider.CancelOrder(pOrderId);
+        }
     }
 }

@@ -18,12 +18,12 @@ namespace BookStore.Business.Entities
         public Order()
         {
             this.OrderItems = new HashSet<OrderItem>();
+            this.Warehouses = new HashSet<Warehouse>();
         }
     
         public int Id { get; set; }
         public Nullable<double> Total { get; set; }
         public System.DateTime OrderDate { get; set; }
-        public string Warehouse { get; set; }
         public string Store { get; set; }
         public System.Guid OrderNumber { get; set; }
     
@@ -31,5 +31,7 @@ namespace BookStore.Business.Entities
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual User Customer { get; set; }
         public virtual Delivery Delivery { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Warehouse> Warehouses { get; set; }
     }
 }

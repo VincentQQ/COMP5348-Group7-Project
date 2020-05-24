@@ -34,10 +34,10 @@ namespace BookStore.Services
         private void InitializeInternalToExternalMappings()
         {
             AutoMapper.Mapper.CreateMap<BookStore.Business.Entities.Book,
-                                        BookStore.Services.MessageTypes.Book>().ForMember(dest => dest.StockCount, opts => opts.MapFrom( src => src.Stock.Quantity));
+                                        BookStore.Services.MessageTypes.Book>().ForMember(dest => dest.StockCount, opts => opts.MapFrom( src => src.Stocks.Sum(stock => stock.Quantity)));
 
             AutoMapper.Mapper.CreateMap<BookStore.Business.Entities.Order,
-                                        BookStore.Services.MessageTypes.Order>();
+                                        BookStore.Services.MessageTypes.Order>().ForMember(dest => dest.Status, opts => opts.MapFrom(src => src.Delivery == null ? 0 : src.Delivery.DeliveryStatus)); ;
 
             AutoMapper.Mapper.CreateMap<BookStore.Business.Entities.OrderItem,
                                         BookStore.Services.MessageTypes.OrderItem>();
@@ -47,6 +47,9 @@ namespace BookStore.Services
 
             AutoMapper.Mapper.CreateMap<BookStore.Business.Entities.LoginCredential,
                                         BookStore.Services.MessageTypes.LoginCredential>();
+
+            AutoMapper.Mapper.CreateMap<BookStore.Business.Entities.Role,
+                                        BookStore.Services.MessageTypes.Role>();
         }
 
         public void InitializeExternalToInternalMappings()
@@ -65,6 +68,9 @@ namespace BookStore.Services
 
             AutoMapper.Mapper.CreateMap<BookStore.Services.MessageTypes.LoginCredential,
                                         BookStore.Business.Entities.LoginCredential>();
+
+            AutoMapper.Mapper.CreateMap<BookStore.Services.MessageTypes.Role,
+                                        BookStore.Business.Entities.Role>();
         }
 
         public Destination Convert<Source, Destination>(Source s) where Destination : class
