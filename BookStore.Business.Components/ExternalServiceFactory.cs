@@ -43,7 +43,7 @@ namespace BookStore.Business.Components
         {
             get
             {
-                return GetTcpService<IDeliveryService>("net.tcp://localhost:9030/DeliveryService");
+                return GetTcpService<IDeliveryService>("net.tcp://localhost:9030/router");
             }
         }
 
@@ -55,5 +55,7 @@ namespace BookStore.Business.Components
             EndpointAddress address = new EndpointAddress(pAddress);
             return new ChannelFactory<T>(tcpBinding, pAddress).CreateChannel();
         }
+
+
     }
 }

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{99EFE925-07D0-48F9-9310-872067D7AAFD}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DeliveryCoRoutingService1</RootNamespace>
-    <AssemblyName>DeliveryCoRoutingService1</AssemblyName>
+    <RootNamespace>DeliveryCoRoutingService</RootNamespace>
+    <AssemblyName>DeliveryCoRoutingService</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
