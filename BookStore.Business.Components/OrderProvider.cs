@@ -216,6 +216,7 @@ namespace BookStore.Business.Components
 
         private void SendOrderErrorMessage(Order pOrder, Exception pException)
         {
+            Console.WriteLine(DateTime.Now.ToString() + "    Sending error notification for order " + pOrder.OrderNumber + " to " + pOrder.Customer.Email);
             EmailProvider.SendMessage(new EmailMessage()
             {
                 ToAddress = pOrder.Customer.Email,
@@ -225,6 +226,7 @@ namespace BookStore.Business.Components
 
         private void SendOrderPlacedConfirmation(Order pOrder)
         {
+            Console.WriteLine(DateTime.Now.ToString() + "    Sending order placed notification for order " + pOrder.OrderNumber + " to " + pOrder.Customer.Email);
             EmailProvider.SendMessage(new EmailMessage()
             {
                 ToAddress = pOrder.Customer.Email,
@@ -255,6 +257,7 @@ namespace BookStore.Business.Components
                     // and save the order
                     lContainer.SaveChanges();
                     lScope.Complete();
+                    Console.WriteLine(DateTime.Now.ToString() + "    Order " + pOrder.OrderNumber + " placed for delivery");
                 }
             }
         }
@@ -263,11 +266,13 @@ namespace BookStore.Business.Components
         {
             try
             {
+                Console.WriteLine(DateTime.Now.ToString() + "    Requesting transfer of " + pTotal + " from " + pCustomerAccountNumber + " to " + RetrieveBookStoreAccountNumber());
                 ExternalServiceFactory.Instance.TransferService.Transfer(pTotal, pCustomerAccountNumber, RetrieveBookStoreAccountNumber());
                 Console.WriteLine(DateTime.Now.ToString() + String.Format("    Order payment of {0} deducted from account {1}", pTotal, pCustomerAccountNumber));
             }
             catch
             {
+                Console.WriteLine(DateTime.Now.ToString() + "    Error transferring " + pTotal + " from " + pCustomerAccountNumber + " to " + RetrieveBookStoreAccountNumber());
                 throw new Exception("Error when transferring funds for order.");
             }
         }
@@ -276,11 +281,13 @@ namespace BookStore.Business.Components
         {
             try
             {
+                Console.WriteLine(DateTime.Now.ToString() + "    Requesting transfer of " + pTotal + " from " + RetrieveBookStoreAccountNumber() + " to " + pCustomerAccountNumber);
                 ExternalServiceFactory.Instance.TransferService.Transfer(pTotal, RetrieveBookStoreAccountNumber(), pCustomerAccountNumber);
                 Console.WriteLine(DateTime.Now.ToString() + String.Format("    Order refund of {0} transferred to account {1}", pTotal, pCustomerAccountNumber));
             }
             catch
             {
+                Console.WriteLine(DateTime.Now.ToString() + "    Error transferring " + pTotal + " from " + RetrieveBookStoreAccountNumber() + " to " + pCustomerAccountNumber);
                 throw new Exception("Error when transferring funds for refund.");
             }
         }

@@ -33,7 +33,23 @@ namespace BookStore.Business.Components
                 EmailProvider.SendMessage(new EmailMessage()
                 {
                     ToAddress = lAffectedOrder.Customer.Email,
-                    Message = "Our records show that there was a problem" + lAffectedOrder.OrderNumber + " delivering your order. Please contact Book Store"
+                    Message = "Our records show that there was a problem " + lAffectedOrder.OrderNumber + " delivering your order. Please contact Book Store"
+                });
+            }
+            if (status == Entities.DeliveryStatus.PickedUp)
+            {
+                EmailProvider.SendMessage(new EmailMessage()
+                {
+                    ToAddress = lAffectedOrder.Customer.Email,
+                    Message = "Our records show that your order " + lAffectedOrder.OrderNumber + " has been picked up from the warehouse. It will be delivered soon"
+                });
+            }
+            if (status == Entities.DeliveryStatus.OnTheWay)
+            {
+                EmailProvider.SendMessage(new EmailMessage()
+                {
+                    ToAddress = lAffectedOrder.Customer.Email,
+                    Message = "Our records show that your order " + lAffectedOrder.OrderNumber + " is on the way. It will arrive soon"
                 });
             }
         }

@@ -11,6 +11,7 @@ namespace EmailService.Business.Components
     {
         public void SendEmail(EmailService.Business.Entities.EmailMessage pMessage)
         {
+            Console.WriteLine(DateTime.Now.ToString() + "    Received request  to send email to " + pMessage.ToAddresses);
             Console.WriteLine("Sending email to " + pMessage.ToAddresses + ": " + pMessage.Message);
         }
     }

@@ -36,6 +36,14 @@ namespace BookStore.Services
             {
                 return DeliveryStatus.Submitted;
             }
+            else if (status == DeliveryInfoStatus.PickedUp)
+            {
+                return DeliveryStatus.PickedUp;
+            }
+            else if (status == DeliveryInfoStatus.OnTheWay)
+            {
+                return DeliveryStatus.OnTheWay;
+            }
             else
             {
                 throw new Exception("Unexpected delivery status received");

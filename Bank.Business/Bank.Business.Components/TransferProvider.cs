@@ -33,10 +33,11 @@ namespace Bank.Business.Components
                     // save changed entities and finish the transaction
                     lContainer.SaveChanges();
                     lScope.Complete();
+                    Console.WriteLine(DateTime.Now.ToString() + "   Successfully transferred " + pAmount + " from " + pFromAcctNumber + " to " + pToAcctNumber);
                 }
                 catch (Exception lException)
                 {
-                    Console.WriteLine("Error occured while transferring money:  " + lException.Message);
+                    Console.WriteLine(DateTime.Now.ToString() + "   Error occured while transferring money:  " + lException.Message);
                     throw;
                 }
             }
