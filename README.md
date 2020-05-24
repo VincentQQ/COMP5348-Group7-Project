@@ -16,15 +16,15 @@ Before running the code, the database for BookStore, Bank, and DeliveryCo needs 
     * DeliveryCo.Business\DeliveryCo.Business.Entities\DeliveryCoEntityModel.edmx.sql
 
 ## Running the project
-
-1. Run MessageBus
-2. Run the Visual Studio 2019 as administrator
-1. Run the following (In Visual 2019, right-click on each file, select Debug -> Start New Instance)
+ 
+1. Run the Visual Studio 2019 as administrator
+2. Run the following (In Visual 2019, right-click on each file, select Debug -> Start New Instance)
+    * Run MessageBus
     * Bank.Application\Bank.Process
     * BookStore.Application\BookStore.Process
-    * DeliveryCo.Application\DeliveryCo.Process #twice to get a backup#
+    * DeliveryCo.Application\DeliveryCo.Process ***twice to get a backup***
     * EmailService.Application\EmailService.Process
-2. Run BookStore.Presentation\BookStore.WebClient
+3. Run BookStore.Presentation\BookStore.WebClient
 
 # Assumptions
 The folowing assumptions were made regarding the requirement of this project:
