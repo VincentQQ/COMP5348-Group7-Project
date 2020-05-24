@@ -23,6 +23,7 @@ Before running the code, the database for BookStore, Bank, and DeliveryCo needs 
     * Bank.Application\Bank.Process
     * BookStore.Application\BookStore.Process
     * DeliveryCo.Application\DeliveryCo.Process ***twice to get a backup***
+    * DeliveryCoRountingService.Process
     * EmailService.Application\EmailService.Process
 3. Run BookStore.Presentation\BookStore.WebClient
 
