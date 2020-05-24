@@ -7,7 +7,7 @@ namespace BookStore.Business.Entities
 {
     public partial class OrderItem
     {
-        public void FindNumberOfWarehouses()
+        public int FindNumberOfWarehouses()
         {
             return 0;
         }

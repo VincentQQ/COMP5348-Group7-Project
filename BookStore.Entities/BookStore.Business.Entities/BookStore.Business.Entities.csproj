@@ -80,6 +80,7 @@
     <Compile Include="LoginCredential.cs">
       <DependentUpon>BookStoreEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\EmailMessageItem.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>BookStoreEntityModel.tt</DependentUpon>
     </Compile>
@@ -89,6 +90,7 @@
     <Compile Include="Partial\Delivery.cs" />
     <Compile Include="Partial\LoginCredential.cs" />
     <Compile Include="Partial\Order.cs" />
+    <Compile Include="Partial\OrderItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs">
       <DependentUpon>BookStoreEntityModel.tt</DependentUpon>
