@@ -28,6 +28,7 @@ namespace Bank.Business.Components
 
                     // update the two accounts
                     lFromAcct.Withdraw(pAmount);
+                    //throw new Exception("Simulated out of memory exception");
                     lToAcct.Deposit(pAmount);
 
                     // save changed entities and finish the transaction
