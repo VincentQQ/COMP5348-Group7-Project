@@ -194,7 +194,7 @@ PublishScripts
 # NuGet Symbol Packages
 .snupkg
 # The packages folder can be ignored because of Package Restore
-[Pp]ackages
+# [Pp]ackages
 # except build, which is used as an MSBuild target.
 ![Pp]ackagesbuild
 # Uncomment if necessary however generally it will be regenerated when needed
