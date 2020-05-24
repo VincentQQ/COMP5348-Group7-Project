@@ -69,6 +69,7 @@ namespace BookStore.Business.Components
                         lContainer.SaveChanges();
                         SendOrderPlacedConfirmation(pOrder);
 
+
                         lScope.Complete();
                     }
                     catch (Exception lException)

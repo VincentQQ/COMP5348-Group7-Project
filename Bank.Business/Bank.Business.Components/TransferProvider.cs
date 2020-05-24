@@ -33,6 +33,8 @@ namespace Bank.Business.Components
                     // save changed entities and finish the transaction
                     lContainer.SaveChanges();
                     lScope.Complete();
+
+                    Console.WriteLine("Sucessful transferred money $" + pAmount.ToString() + " from account-" + pFromAcctNumber.ToString() + " to account-" + pToAcctNumber.ToString() );
                 }
                 catch (Exception lException)
                 {
