@@ -22,7 +22,7 @@ Before running the code, the database for BookStore, Bank, and DeliveryCo needs 
 1. Run the following (In Visual 2019, right-click on each file, select Debug -> Start New Instance)
     * Bank.Application\Bank.Process
     * BookStore.Application\BookStore.Process
-    * DeliveryCo.Application\DeliveryCo.Process #2 twice to get a backup
+    * DeliveryCo.Application\DeliveryCo.Process #twice to get a backup#
     * EmailService.Application\EmailService.Process
 2. Run BookStore.Presentation\BookStore.WebClient
 
