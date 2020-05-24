@@ -11,7 +11,7 @@ namespace Bank.Business.Entities
         {
             if (this.Balance < pAmount)
             {
-                throw new Exception("Insufficient funds to make withdrawal from " + this.AccountNumber);
+                throw new Exception(DateTime.Now.ToString() + "     Insufficient funds to make withdrawal from " + this.AccountNumber);
             }
             Balance -= pAmount;
         }
