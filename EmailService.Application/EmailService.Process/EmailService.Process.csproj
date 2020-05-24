@@ -65,6 +65,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -73,6 +75,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\SubscriptionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -80,9 +87,23 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+
+    <None Include="Connected Services\SubscriptionService\service.wsdl" />
+    <None Include="Connected Services\SubscriptionService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SubscriptionService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+
     <None Include="packages.config" />
+
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{c2d987a4-ad05-4c0b-b285-5b64b0132df9}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\EmailService.Business.Components\EmailService.Business.Components.csproj">
       <Project>{74abb0d9-288f-44ea-ad9a-b07b4f108c8b}</Project>
       <Name>EmailService.Business.Components</Name>
@@ -99,6 +120,24 @@
       <Project>{16F35917-9906-45FD-81B6-B06FCC8D19B6}</Project>
       <Name>EmailService.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\SubscriptionService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SubscriptionService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SubscriptionService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SubscriptionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

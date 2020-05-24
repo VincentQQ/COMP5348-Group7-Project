@@ -30,11 +30,11 @@
                 }
             </td>
             <td>
-                @if (order.Status == 1)
+                @if (order.Status > 0)
                 {
                     <span>N/A</span>
                 }
-                else if (!Model.isAdmin)
+                else
                 {
                     using (Html.BeginForm("CancelOrder", "Store"))
                     {
@@ -42,6 +42,12 @@
                         @Html.Hidden("pReturnUrl", ViewContext.HttpContext.Request.Url.PathAndQuery);
                         <input type="submit" value="Cancel Order" />
                     }
+                }
+            </td>
+            <td>
+                @if (order.Status == 1)
+                {
+                    <span>N/A</span>
                 }
                 else
                 {

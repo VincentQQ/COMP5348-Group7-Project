@@ -6,7 +6,7 @@ using System.ServiceModel;
 
 namespace DeliveryCo.Services.Interfaces
 {
-    public enum DeliveryInfoStatus { Submitted, Delivered, Failed }
+    public enum DeliveryInfoStatus { Submitted, Delivered, Failed, PickedUp, OnTheWay }
 
     [ServiceContract]
     public interface IDeliveryNotificationService

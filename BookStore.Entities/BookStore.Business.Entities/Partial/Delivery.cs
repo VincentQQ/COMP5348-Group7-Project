@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BookStore.Business.Entities
 {
-    public enum DeliveryStatus { Submitted, Delivered, Failed }
+    public enum DeliveryStatus { Submitted, Delivered, Failed, PickedUp, OnTheWay }
 
     public partial class Delivery
     {

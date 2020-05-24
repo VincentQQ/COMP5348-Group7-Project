@@ -19,6 +19,7 @@ namespace Bank.Services
         [OperationBehavior(TransactionScopeRequired=true)]
         public void Transfer(double pAmount, int pFromAcctNumber, int pToAcctNumber)
         {
+            Console.WriteLine(DateTime.Now.ToString() + "   Received request to transfer " + pAmount + " from " + pFromAcctNumber + " to " + pToAcctNumber);
             TransferProvider.Transfer(pAmount, pFromAcctNumber, pToAcctNumber);
         }
     }

@@ -18,6 +18,7 @@ namespace BookStore.Business.Components
 
         public void NotifyDeliveryCompletion(Guid pDeliveryId, Entities.DeliveryStatus status)
         {
+            Console.WriteLine(DateTime.Now.ToString() + "   + Notifying Delivery " + pDeliveryId.ToString());
             Order lAffectedOrder = RetrieveDeliveryOrder(pDeliveryId);
             UpdateDeliveryStatus(pDeliveryId, status);
             if (status == Entities.DeliveryStatus.Delivered)
@@ -25,7 +26,7 @@ namespace BookStore.Business.Components
                 EmailProvider.SendMessage(new EmailMessage()
                 {
                     ToAddress = lAffectedOrder.Customer.Email,
-                    Message = "Our records show that your order" +lAffectedOrder.OrderNumber + " has been delivered. Thank you for shopping at video store"
+                    Message = "Our records show that your order " +lAffectedOrder.OrderNumber + " has been delivered. Thank you for shopping at video store"
                 });
             }
             if (status == Entities.DeliveryStatus.Failed)
@@ -33,7 +34,23 @@ namespace BookStore.Business.Components
                 EmailProvider.SendMessage(new EmailMessage()
                 {
                     ToAddress = lAffectedOrder.Customer.Email,
-                    Message = "Our records show that there was a problem" + lAffectedOrder.OrderNumber + " delivering your order. Please contact Book Store"
+                    Message = "Our records show that there was a problem " + lAffectedOrder.OrderNumber + " delivering your order. Please contact Book Store"
+                });
+            }
+            if (status == Entities.DeliveryStatus.PickedUp)
+            {
+                EmailProvider.SendMessage(new EmailMessage()
+                {
+                    ToAddress = lAffectedOrder.Customer.Email,
+                    Message = "Our records show that your order " + lAffectedOrder.OrderNumber + " has been picked up from the warehouse. It will be delivered soon"
+                });
+            }
+            if (status == Entities.DeliveryStatus.OnTheWay)
+            {
+                EmailProvider.SendMessage(new EmailMessage()
+                {
+                    ToAddress = lAffectedOrder.Customer.Email,
+                    Message = "Our records show that your order " + lAffectedOrder.OrderNumber + " is on the way. It will arrive soon"
                 });
             }
         }
@@ -49,6 +66,7 @@ namespace BookStore.Business.Components
                     lDelivery.DeliveryStatus = status;
                     lContainer.SaveChanges();
                 }
+                Console.WriteLine(DateTime.Now.ToString() + "   + Update Delivery " + pDeliveryId.ToString() + " to status-" + status.ToString());
                 lScope.Complete();
             }
         }
