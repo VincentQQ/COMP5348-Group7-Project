@@ -18,7 +18,7 @@ namespace BookStore.Business.Components
 
         public void NotifyDeliveryCompletion(Guid pDeliveryId, Entities.DeliveryStatus status)
         {
-            Console.WriteLine(DateTime.Now.ToString() + "   + Notify Delivery " + pDeliveryId.ToString() + " is complete");
+            Console.WriteLine(DateTime.Now.ToString() + "   + Notifying Delivery " + pDeliveryId.ToString());
             Order lAffectedOrder = RetrieveDeliveryOrder(pDeliveryId);
             UpdateDeliveryStatus(pDeliveryId, status);
             if (status == Entities.DeliveryStatus.Delivered)
