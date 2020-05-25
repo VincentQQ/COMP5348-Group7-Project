@@ -22,8 +22,8 @@ Before running the code, the database for BookStore, Bank, and DeliveryCo needs 
     * Run MessageBus
     * Bank.Application\Bank.Process
     * BookStore.Application\BookStore.Process
-    * DeliveryCo.Application\DeliveryCo.Process ***twice to get a backup***
-    * DeliveryCoRountingService.Process
+    * DeliveryCo.Application\DeliveryCo.Process (***run twice to get a backup service running***)
+    * DeliveryCoRoutingService.Process
     * EmailService.Application\EmailService.Process
 3. Run BookStore.Presentation\BookStore.WebClient
 
